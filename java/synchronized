@@ -1,0 +1,3 @@
+synchronized锁住的是括号里的对象，而不是代码。
+对于非static的synchronized方法，锁的就是对象本身也就是this
+static方法锁的是xxx.class

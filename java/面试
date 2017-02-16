@@ -3,3 +3,19 @@ treeMap如何按顺序遍历
 
 HashMap的数据结构 ??
 
+
+
+spring 先初始化被依赖的bean，还是先初始化本身这个bean?
+
+byteBuffer有哪些特性
+
+netty的NIO机制
+
+业务介绍
+
+多线程
+
+性能与锁 hashMap => concurrentHashMap 
+
+
+

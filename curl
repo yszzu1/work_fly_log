@@ -1,2 +1,5 @@
 格式化json
 curl -d @swiftuser.json -H "Content-type:application/json"  http://172.25.71.13:35357/v2.0/tokens  |python -mjson.tool
+
+格式化xml
+curl -d @swiftuser.json -H "Content-type:application/json"  http://172.25.71.13:35357/v2.0/tokens  |xmllint --format -

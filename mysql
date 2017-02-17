@@ -1,2 +1,12 @@
 改写了my.cnf文件之后，需要重新调用"mysql_install_db --user=mysql"命令，以按照新的配置文件对数据库进行配置
 下载linux-generic.tar.gz包安装
+
+查看是否大小写敏感
+MySQL [(none)]> show variables like '%case%';
++------------------------+-------+
+| Variable_name          | Value |
++------------------------+-------+
+| lower_case_file_system | OFF   |
+| lower_case_table_names | 0     |
++------------------------+-------+
+

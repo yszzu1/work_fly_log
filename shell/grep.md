@@ -6,3 +6,5 @@ grep -B 10 "xxxx" xx.log
 
 获得上面几行
 grep -C 10 "xxxx" xx.log
+
+定位问题用，可以估计出问题和哪个具体业务有关系

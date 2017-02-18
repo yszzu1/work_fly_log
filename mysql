@@ -16,6 +16,7 @@ insert into aa (name) values('bb');
 mysql没有varchar2类型
 ALTER TABLE aa ADD idd varchar(10);
 
+http://mirrors.sohu.com/mysql/MySQL-5.6/在sohu镜像下载mysql rpm包
 
 rpm安装mysql-server, mysql-devel,mysql-client之后执行初始
 [root@localhost rpm]# /usr/bin/mysql_install_db

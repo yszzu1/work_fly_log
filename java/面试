@@ -21,3 +21,6 @@ netty的NIO机制
 
 
 volatile synchronized
+
+        Hashtable hs = new Hashtable();
+//        hs.put(null, null); //key value都不能为空

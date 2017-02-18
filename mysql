@@ -10,3 +10,8 @@ MySQL [(none)]> show variables like '%case%';
 | lower_case_table_names | 0     |
 +------------------------+-------+
 
+列名不加引号
+insert into aa (name) values('bb');
+
+mysql没有varchar2类型
+ALTER TABLE aa ADD idd varchar(10);

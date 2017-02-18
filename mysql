@@ -15,3 +15,9 @@ insert into aa (name) values('bb');
 
 mysql没有varchar2类型
 ALTER TABLE aa ADD idd varchar(10);
+
+
+rpm安装mysql-server, mysql-devel,mysql-client之后执行初始
+[root@localhost rpm]# /usr/bin/mysql_install_db
+
+[root@localhost rpm]# service mysql start启动大概需要30秒，不要强行终止

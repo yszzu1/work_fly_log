@@ -5,4 +5,5 @@ Tomcat启动时会创建线程池，当接收到一个请求时先创建一个se
 从Java 内存模型也可以知道，**方法中的临时变量是在栈上分配空间，而且每个线程都有自己私有的栈空间，所以它们不会影响线程的安全**  
 这样每个线程就会有一个栈空间上的request和response对象  
 <a>DispatcherServlet在每个栈空间上设置了一个新的Controller(如果配置成protoscope)对象，但是使用同一个service对象，因此Spring使用ThreadLocal来处理多线程的问题</a>  
-**多线程问题是由Servlet中的实例变量引起，尽量在doService方法中使用局部变量**
+**多线程问题是由Servlet中的实例变量引起，尽量在doService方法中使用局部变量**  
+具体点就是多个线程写操作同一对象的同一个属性

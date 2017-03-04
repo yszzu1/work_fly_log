@@ -15,3 +15,9 @@ export PS4='+{$LINENO:$FUNCNAME} '
         ipList[2]=`echo ${allIp[@]:2*$tx} | tr ' ' '\n\r' | shuf -n1`  
         
 命令的并发运行, 使用 &作为后台任务运行，然后使用wait来等待结束 
+
+
+
+创建固定大小的文件
+dd if=/dev/zero of=hello.txt bs=100M count=1
+

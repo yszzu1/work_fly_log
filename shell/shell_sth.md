@@ -1,0 +1,17 @@
+在命令中含有$ \ 时使用${}更好，使用``可能会有bug,结果与希望不一致
+使用“”时 echo $@ 与 echo "$@"是不同的
+
+time xxxx统计命令的执行时间
+
+
+
+shell调试显示行号
+export PS4='+{$LINENO:$FUNCNAME} '
+
+数组操作取里面的随机取值
+        local tx=$((($length+1)/3))
+        ipList[0]=`echo ${allIp[@]:0:$tx} | tr ' ' '\n\r' | shuf -n1`  
+        ipList[1]=`echo ${allIp[@]:$tx:$tx} | tr ' ' '\n\r' | shuf -n1`  
+        ipList[2]=`echo ${allIp[@]:2*$tx} | tr ' ' '\n\r' | shuf -n1`  
+        
+命令的并发运行, 使用 &作为后台任务运行，然后使用wait来等待结束 

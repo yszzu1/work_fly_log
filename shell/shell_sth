@@ -1,9 +1,0 @@
-在命令中含有$ \ 时使用${}更好，使用``可能会有bug,结果与希望不一致
-使用“”时 echo $@ 与 echo "$@"是不同的
-
-time xxxx统计命令的执行时间
-
-
-
-shell调试显示行号
-export PS4='+{$LINENO:$FUNCNAME} '

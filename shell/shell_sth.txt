@@ -21,3 +21,5 @@ export PS4='+{$LINENO:$FUNCNAME} '
 创建固定大小的文件
 dd if=/dev/zero of=hello.txt bs=100M count=1
 
+查找大文件
+find / -size +1G -exec ls -lh {} \;

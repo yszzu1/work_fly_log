@@ -3,11 +3,11 @@
 
 
 HttpSession是在HttpRequest.getSession()时首次创建，如果浏览器没有关闭，这个sessionId会一直存在。  
-使用这个sessionId可以向其他IP端口的应用发起请求，如果这个应用和首次创建session时的应用共用一个session存储的话。  
+如果其他应用和当前应用共用一个session存储的话， 使用这个sessionId就可以向其他应用发起请求。  
 
-```
+````
 
-    public HttpSession getSession() {
+    public HttpSession org.apache.catalina.connector.Request.getSession()() {
         Session session = doGetSession(true);
         if (session == null) {
             return null;
@@ -15,10 +15,10 @@ HttpSession是在HttpRequest.getSession()时首次创建，如果浏览器没有
 
         return session.getSession();
     }
-``` 
-    doGetSession方法默认会创建新的session (如果request中没有sessionId),
+````
+    doGetSession方法传参为true,默认会创建新的session (如果request中没有sessionId),
     
-```
+````
     protected Session doGetSession(boolean create) {
 
         // There cannot be a session if no context has been assigned yet
@@ -92,12 +92,12 @@ HttpSession是在HttpRequest.getSession()时首次创建，如果浏览器没有
         } else {
             sessionId = null;
         }
-        session = manager.createSession(sessionId);
+      ***  session = manager.createSession(sessionId);***
 ...
         session.access();
         return session;
     }
- ```
+ ````
          注意其中的Manager manager = context.getManager(); session实际是由manager创建并管理，而Manager默认会用的是org.apache.catalina.session.StandardManager,  我们可以在TOMCAT配置文件中指定自己实现的manager, Redis或者memcached的session共享插件也是这个原理。
  
  

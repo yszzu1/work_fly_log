@@ -40,7 +40,7 @@ HttpSession是在HttpRequest.getSession()时首次创建，如果浏览器没有
         if (manager == null) {
             return (null);      // Sessions are not supported
         }
-        if (requestedSessionId != null) {
+        if (requestedSessionId != null) { //请求中已经有session时，能找到就返回
             try {
                 session = manager.findSession(requestedSessionId);
             } catch (IOException e) {
@@ -85,14 +85,14 @@ HttpSession是在HttpRequest.getSession()时首次创建，如果浏览器没有
                         }
                     }
                 }
-                if (!found) {
+                if (!found) {//请求中有sesseionId,但是没有找到,将sessionId置成空
                     sessionId = null;
                 }
             }
         } else {
             sessionId = null;
         }
-        session = manager.createSession(sessionId);//创建session的位置
+        session = manager.createSession(sessionId);//创建session的位置, 如果sessionId为空会重新生成sessionId
 ...
         session.access();
         return session;

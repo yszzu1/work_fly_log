@@ -92,7 +92,7 @@ HttpSession是在HttpRequest.getSession()时首次创建，如果浏览器没有
         } else {
             sessionId = null;
         }
-      ***  session = manager.createSession(sessionId);***
+        session = manager.createSession(sessionId);//创建session的位置
 ...
         session.access();
         return session;

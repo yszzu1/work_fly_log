@@ -1,0 +1,5 @@
+
+java -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=32666 -jar start.jar
+
+
+eclipse新建remoteDubugConfigure, 使用上面的服务端IP和端口，注意源码保持一致。原理：在eclipse中的断点会自动attach到服务端JVM的进程上

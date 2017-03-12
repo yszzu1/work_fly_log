@@ -37,3 +37,8 @@ echo "We are shutting down in 1 hour" | wall
 
  为什么？清空一个文件的标准写法是前面有个：
 : > alwayszero.file
+
+查看文件被哪个进程打开
+fuser -v /var/log/mail.log
+进程是由哪个文件运行起来的
+lsof -p -i

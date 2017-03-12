@@ -3,7 +3,7 @@
 
 time xxxx统计命令的执行时间
 
-
+watch xxxx每几秒自动执行一个命令或脚本  
 
 shell调试显示行号
 export PS4='+{$LINENO:$FUNCNAME} '

@@ -30,3 +30,7 @@ du -h /* | awk '$1 ~/(^.G|..G|...G)/'
 cat aa | sed 's/a/b/g' > aa 不管文件里的内容是什么都会清空这个文件  
 cat aa | sed 's/a/b/g' >> aa 追加却不会清空文件 使用strace并没有看出来什么区别
 修改文件内容应该使用sed -i 
+
+
+给所有已登录人发消息
+echo "We are shutting down in 1 hour" | wall

@@ -1,5 +1,3 @@
-在实际调用之前使用@PrepareForTest进行打桩，  
-如果已经调用一次，打桩可能不会生效  
 
 
 ***静态方法拦截***
@@ -9,6 +7,8 @@ PowerMockito.mockStatic(KeystoneClientImpl.class);
 
 ***new对象前拦截***
 PowerMockito.whenNew(FileWriter.class).withArguments(anyString()).thenReturn(fileWrite);  
+在实际调用之前使用@PrepareForTest进行打桩，  
+如果已经调用一次，打桩可能不会生效  
    
       
 

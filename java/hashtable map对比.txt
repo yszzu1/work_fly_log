@@ -1,0 +1,113 @@
+ 
+public class TestHashMap {
+        public final static int THREAD_POOL_SIZE = 5;
+
+        public static Map<String, Integer> hashTableObject = null;
+        public static Map<String, Integer> synchronizedMapObject = null;
+        public static Map<String, Integer> hashMapObject = null;
+        public static Map<String, Integer> concurrentHashMapObject = null;
+
+        public static void main(String[] args) throws InterruptedException {
+
+            // Test with Hashtable
+            hashTableObject = new Hashtable();
+            crunchifyPerformTest(hashTableObject);
+
+            // Test with synchronizedMap
+            synchronizedMapObject = Collections.synchronizedMap(new HashMap<String, Integer>());
+            crunchifyPerformTest(synchronizedMapObject);
+
+            // Test with HashMap
+            hashMapObject = new HashMap<String, Integer>();
+            crunchifyPerformTest(hashMapObject);
+
+            // Test with ConcurrentHashMap
+            concurrentHashMapObject = new ConcurrentHashMap();
+            crunchifyPerformTest(concurrentHashMapObject);
+
+        }
+
+        public static void crunchifyPerformTest(final Map<String, Integer> map) throws InterruptedException {
+
+            System.out.println("Test started for: " + map.getClass());
+            long averageTime = 0;
+            for (int i = 0; i < 5; i++) {
+
+                long startTime = System.nanoTime();
+                ExecutorService crunchifyExServer = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
+
+                for (int j = 0; j < THREAD_POOL_SIZE; j++) {
+                    crunchifyExServer.execute(new Runnable() {
+                        public void run() {
+
+                            for (int i = 0; i < 500000; i++) {
+                                Integer crunchifyRandomNumber = (int) Math.ceil(Math.random() * 550000);
+
+                                // Retrieve value. We are not using it anywhere
+                                Integer crunchifyValue = map.get(String.valueOf(crunchifyRandomNumber));
+
+                                // Put value
+                                map.put(String.valueOf(crunchifyRandomNumber), crunchifyRandomNumber);
+                            }
+                        }
+                    });
+                }
+
+                // Make sure executor stops
+                crunchifyExServer.shutdown();
+
+                // Blocks until all tasks have completed execution after a shutdown request
+                crunchifyExServer.awaitTermination(Long.MAX_VALUE, TimeUnit.DAYS);
+
+                long entTime = System.nanoTime();
+                long totalTime = (entTime - startTime) / 1000000L;
+                averageTime += totalTime;
+                System.out.println("500K entried added/retrieved in " + totalTime + " ms");
+            }
+            System.out.println("For " + map.getClass() + " the average time is " + averageTime / 5 + " ms\n");
+        }
+}
+
+
+
+ Test started for: class java.util.Hashtable
+ 500K entried added/retrieved in 1474 ms
+ 500K entried added/retrieved in 1792 ms
+ 500K entried added/retrieved in 1355 ms
+ 500K entried added/retrieved in 1376 ms
+ 500K entried added/retrieved in 1332 ms
+ For class java.util.Hashtable the average time is 1465 ms
+
+ Test started for: class java.util.Collections$SynchronizedMap
+ 500K entried added/retrieved in 1393 ms
+ 500K entried added/retrieved in 1310 ms
+ 500K entried added/retrieved in 1287 ms
+ 500K entried added/retrieved in 1294 ms
+ 500K entried added/retrieved in 1277 ms
+ For class java.util.Collections$SynchronizedMap the average time is 1312 ms
+
+ Test started for: class java.util.HashMap
+ 500K entried added/retrieved in 461 ms
+ 500K entried added/retrieved in 1377 ms
+ 500K entried added/retrieved in 397 ms
+ 500K entried added/retrieved in 401 ms
+ 500K entried added/retrieved in 424 ms
+ For class java.util.HashMap the average time is 612 ms
+
+ Test started for: class java.util.concurrent.ConcurrentHashMap
+ 500K entried added/retrieved in 469 ms
+ 500K entried added/retrieved in 391 ms
+ 500K entried added/retrieved in 317 ms
+ 500K entried added/retrieved in 390 ms
+ 500K entried added/retrieved in 383 ms
+ For class java.util.concurrent.ConcurrentHashMap the average time is 390 ms
+ 
+在性能上ConcurrentHashMap > hashMap > synchronizedMap > Hashtable  
+在线程安全性上 synchronizedMap > Hashtable > ConcurrentHashMap > hashMap
+
+hashMap线程不安全的原因：
+  1. 内部使用的是Node数组，在扩容的时候会重新hash key，最终只有一个线程的结果有效，其他线程的结果会被覆盖、丢失。  
+  2. 多线程put操作时可能会死循环  
+  
+  
+  

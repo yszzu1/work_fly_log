@@ -44,4 +44,7 @@ fuser -v /var/log/mail.log
 lsof -p -i
 
 数字转换成十六进制  
-printf '%x' 165154
+printf '%x' 165154  
+
+
+set -m ，关闭监控，shell中的进程管理，信号量的传播

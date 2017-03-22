@@ -42,3 +42,6 @@ echo "We are shutting down in 1 hour" | wall
 fuser -v /var/log/mail.log
 进程是由哪个文件运行起来的
 lsof -p -i
+
+数字转换成十六进制  
+printf '%x' 165154

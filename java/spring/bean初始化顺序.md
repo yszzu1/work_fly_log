@@ -25,3 +25,9 @@
 ```
 
 参考： https://prasanthnath.wordpress.com/2013/03/21/injecting-a-prototype-bean-into-a-singleton-bean/
+
+
+### 3. 依赖注入
+spring依赖注入有一个限制：小作用域的对象不能被注入到大作用域的对象。你不能够把request和session作用域的对象注入到singleton对象中。前者在每次WEB请求时，均会创建新的实例，每个线程独享这个request/session作用域的对象；后者是在Spring初始化或第一次使用时被创建，然后被所有的线程共享。假如你把某个request/session作用域的对象意外注入到singleton对象中，将可能产生致命的应用错误，甚至导致数据库的错乱。
+因此structs中action都需要设置成prototype  
+参考：http://openwebx.org/docs/filter.html

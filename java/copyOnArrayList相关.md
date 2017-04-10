@@ -23,10 +23,10 @@ public class CopyOnWriteArrayListTest {
             BB b = it.next();
             if (preId == null || !b.getClassId().equals(preId)) {
                 preId = b.getClassId();
-                it.previous();
-                it.add(new BB(b.getClassId()));
-                it.next();
-            }
+                it.previous();//此处会移动游标
+                it.add(new BB(b.getClassId()));
+                it.next();//调用了两次next
+            }
         }
 
         for (BB bb : ls) {

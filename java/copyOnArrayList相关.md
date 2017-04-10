@@ -68,3 +68,6 @@ class BB {
 
 }
 ````
+
+***arrayList的ListIterator可以增加删除数据， Iterator可以删除数据，但是不能增加数据
+CopyOnWriteArrayList的ListIterator不能增加数据

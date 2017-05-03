@@ -1,7 +1,7 @@
 
 
 ### 1. 时序图  
-默认情况下是启动时初始化，可以通过<beans default-lazy-init="true">来修改默认行为。
+默认情况下是启动时初始化，可以通过<code><beans default-lazy-init="true"/></code>来修改默认行为。
 如果一个非延时初始化的bean引用了一个lazy-initialize的bean， 那么这个lazy-initialize bean会在启动时被初始化，以正常完成依赖注入。
 http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#beans-factory-lazy-init
 

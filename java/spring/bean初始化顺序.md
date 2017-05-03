@@ -1,6 +1,9 @@
 
 
-### 1. 时序图  
+### 1. 时序图  
+默认情况下是启动时初始化，可以通过<beans default-lazy-init="true">来修改默认行为。
+如果一个非延时初始化的bean引用了一个lazy-initialize的bean， 那么这个lazy-initialize bean会在启动时被初始化，以正常完成依赖注入。
+http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#beans-factory-lazy-init
 
 ### 2. singletone与prototype
 ***如果一个singletone的beanA，autowire引用了另外一个prototype的beanB, 那么在beanA中始终引用的是同一个beanB***
@@ -26,7 +29,7 @@
 
 参考： https://prasanthnath.wordpress.com/2013/03/21/injecting-a-prototype-bean-into-a-singleton-bean/
 http://docs.spring.io/spring/docs/2.5.x/reference/beans.html#beans-factory-scopes-sing-prot-interaction
-
+http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#beans-factory-scopes-sing-prot-interaction
 
 ### 3. 依赖注入
 spring依赖注入有一个限制：小作用域的对象不能被注入到大作用域的对象。你不能够把request和session作用域的对象注入到singleton对象中。前者在每次WEB请求时，均会创建新的实例，每个线程独享这个request/session作用域的对象；后者是在Spring初始化或第一次使用时被创建，然后被所有的线程共享。假如你把某个request/session作用域的对象意外注入到singleton对象中，将可能产生致命的应用错误，甚至导致数据库的错乱。

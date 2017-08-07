@@ -11,3 +11,6 @@ jquery  deferred.done ajax请求返回一个deferred对象
 
 富文本编辑
 https://www.tinymce.com/
+
+
+jquery .ajax() 参数URL为空时，默认向当前地址发送请求。 增加判断 如果为空直接返回，避免重复请求。

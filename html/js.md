@@ -1,6 +1,6 @@
 一些前端组件  
-sea.js  
-Handlebars.js
+sea.js  seajs.use(xxx.js), 直接用script引入不会自动调用里面的方法
+Handlebars.js 可以访问WINDOW中定义的全局变量
 
 
 jquery  deferred.done ajax请求返回一个deferred对象 

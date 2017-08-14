@@ -26,6 +26,8 @@ http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/
     <aop:scoped-proxy/>
 </bean>
 ```
+  
+！！如果prototype实体使用cglib代理，那么get set方法不能是final类型的，final会造成值直接set到proxy对象上，而不是动态生成的对象上  
 
 参考： https://prasanthnath.wordpress.com/2013/03/21/injecting-a-prototype-bean-into-a-singleton-bean/
 http://docs.spring.io/spring/docs/2.5.x/reference/beans.html#beans-factory-scopes-sing-prot-interaction

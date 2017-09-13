@@ -35,8 +35,8 @@ targetNameSpace是定义在xsd中的, 并在xml文件头中使用，也可以在
     头中声明的xmlns：xx="http://xxx/xxx", 不是以xsd结尾
               xsi:schemaLocation 定义多个xsd的位置，是W3C的规范，固定格式
     最多只能有一个没有后缀的xmlns, 并被当作默认namespace, 如果在element中没有使用前缀，就是指这个默认空间  
-    
-    
-                 
+    
+##### 参考
+http://www.w3school.com.cn/schema/schema_complex_any.asp  
                  
              

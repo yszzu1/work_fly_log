@@ -17,3 +17,4 @@ Tomcat启动时会创建线程池，当接收到一个请求时先创建一个se
   
   与NIO的区别  
   https://stackoverflow.com/questions/39802643/java-async-in-servlet-3-0-vs-nio-in-servlet-3-1  
+  http://www.cnblogs.com/davenkin/p/async-servlet.html

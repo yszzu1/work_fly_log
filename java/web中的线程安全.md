@@ -1,4 +1,4 @@
-##servlet的线程模型
+## servlet2.0的线程模型
 
 Tomcat启动时会创建线程池，当接收到一个请求时先创建一个servlet对象，分配一个独立的线程来调用doService方法
 **线程是由tomcat来管理和调用的**  
@@ -7,3 +7,9 @@ Tomcat启动时会创建线程池，当接收到一个请求时先创建一个se
 <a>DispatcherServlet在每个栈空间上设置了一个新的Controller(如果配置成protoscope)对象，但是使用同一个service对象，因此Spring使用ThreadLocal来处理多线程的问题</a>  
 **多线程问题是由Servlet中的实例变量引起，尽量在doService方法中使用局部变量**  
 具体点就是多个线程写操作同一对象的同一个属性
+
+
+
+## servlet3.0 web异步线程
+springMVC Controller中返回Future<T>对象的原理：  
+http://www.infoq.com/cn/news/2013/11/use-asynchronous-servlet-improve#anch139894

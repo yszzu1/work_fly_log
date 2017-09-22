@@ -13,7 +13,9 @@ Tomcat启动时会创建线程池，当接收到一个请求时先创建一个se
 ## servlet3.0 web异步线程  
   
   springMVC Controller中返回Future<T>对象的原理  
+  https://www.javaworld.com/article/2077995/java-concurrency/java-concurrency-asynchronous-processing-support-in-servlet-3-0.html
   http://www.infoq.com/cn/news/2013/11/use-asynchronous-servlet-improve#anch139894  
+  http://carlmartensen.com/completablefuture-deferredresult-async  
   
   与NIO的区别  
   https://stackoverflow.com/questions/39802643/java-async-in-servlet-3-0-vs-nio-in-servlet-3-1  

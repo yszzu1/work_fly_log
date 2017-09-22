@@ -10,6 +10,10 @@ Tomcat启动时会创建线程池，当接收到一个请求时先创建一个se
 
 
 
-## servlet3.0 web异步线程
-springMVC Controller中返回Future<T>对象的原理：  
-http://www.infoq.com/cn/news/2013/11/use-asynchronous-servlet-improve#anch139894
+## servlet3.0 web异步线程  
+  
+  springMVC Controller中返回Future<T>对象的原理  
+  http://www.infoq.com/cn/news/2013/11/use-asynchronous-servlet-improve#anch139894  
+  
+  与NIO的区别  
+  https://stackoverflow.com/questions/39802643/java-async-in-servlet-3-0-vs-nio-in-servlet-3-1  

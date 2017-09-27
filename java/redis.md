@@ -15,5 +15,10 @@ cluster-node-timeout 15000
 数据的key不能为null， value也不能为null?   
 
 
-如果Spring-data-redis使用集群方式配置connectionPool, 则redis也必须以集群方式启动
+如果Spring-data-redis使用集群方式配置connectionPool, 则redis也必须以集群方式启动  
+
+
+spring boot项目中可以使用spring-data-autoconfig.jar中的RedisProperties 来简化配置, 支持集群配置
+
+redisTemplate注册的成ListOperation的原理 http://www.cnblogs.com/chanedi/p/4135303.html  
 

@@ -7,4 +7,5 @@
   
   
 ### logback MDC  
-用来在日志中增加自定义字段
+用来在日志中增加自定义字段  
+![xml解析过程](https://github.com/yszzu1/work_fly_log/blob/master/images/logback%20xml%E9%85%8D%E7%BD%AE%E8%A7%A3%E6%9E%90%E8%BF%87%E7%A8%8B.png)

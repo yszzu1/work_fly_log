@@ -1,6 +1,8 @@
 
 
 Spring boot 中一些自带的管理beans
+
+
  
 /heath 可以查看应用是否启动成功，
 
@@ -14,10 +16,10 @@ Spring boot 中一些自带的管理beans
 
 除/heath外, 其他的访问需要在application.properties中加入以下配置，以禁用安全校验 （代码见MvcEndpointSecurityInterceptor）
 
-management.security.enabled=false
+<span style="color:red">management.security.enabled=false</span>
 
-参考:
-https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
-http://www.blogs8.cn/posts/A5qja11
-https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-monitoring.html
+参考:  
+https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html  
+http://www.blogs8.cn/posts/A5qja11  
+https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-monitoring.html  
 

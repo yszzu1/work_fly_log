@@ -16,7 +16,7 @@ Spring boot 中一些自带的管理beans
 
 除/heath外, 其他的访问需要在application.properties中加入以下配置，以禁用安全校验 （代码见MvcEndpointSecurityInterceptor）
 
-<span style="color:red">management.security.enabled=false</span>
+***management.security.enabled=false***
 
 参考:  
 https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html  

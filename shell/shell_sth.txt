@@ -52,8 +52,6 @@ set -m ，关闭监控，shell中的进程管理，信号量的传播
 
 
 shell快捷键在/etc/inputrc或者~/.inputrc中定义，修改后使用Ctrl x或者Ctrl r或者bind -f ~/.inputrc或者bash -l重新加载
-```
 # alternate mappings for "page up" and "page down" to search the history
 "\e[5~": history-search-backward
 "\e[6~": history-search-forward
-```

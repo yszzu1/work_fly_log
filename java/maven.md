@@ -7,3 +7,12 @@
 任意打包使用 maven-antrun-plugin
 
 
+
+### plugin
+使用execution goal可以给plugin绑定mvn的生命周期  
+
+如果plugin中不指定execution的goal时, 需要在命令行中指定此plugin的名称和参数, eg: mvn assembly:run, mvn antrun:run
+
+Parent(POM)中的plugin会在各子模块中生效
+
+

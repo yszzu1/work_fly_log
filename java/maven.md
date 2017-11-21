@@ -13,6 +13,41 @@
 如果plugin中不指定execution的goal时, 需要在命令行中指定此plugin的名称和参数, eg: mvn assembly:single, mvn antrun:run   
 Parent(POM)中的plugin会在各子模块中生效
 
+1. 只有goals,没有parse(mvn的生命周期). 
+需要手动调用mvn xxx:xxx
+```
+<groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-maven-plugin</artifactId>
+  <executions>
+      <execution>
+          <goals>
+              <goal>repackage</goal>
+          </goals>
+      </execution>
+  </executions>
+```
+这个示例实际默认绑定到<a href='https://docs.spring.io/spring-boot/docs/current/maven-plugin/repackage-mojo.html'>package parse</a>上了 
+
+2.有parse，也有goal. 在执行到parse时自动执行goal
+```
+  <groupId>com.alibaba.citrus.tool</groupId>
+    <artifactId>autoconfig-maven-plugin</artifactId>
+    <configuration>
+        <dest>${project.build.outputDirectory}</dest>
+        <exploding>false</exploding>
+        <userProperties>${root-dir}/antx-${env}.properties</userProperties>
+    </configuration>
+    <executions>
+        <execution>
+            <phase>prepare-package</phase>
+            <goals>
+                <goal>autoconfig</goal>
+            </goals>
+        </execution>
+    </executions>
+```
+
+
 ### mirrors
 mirrorOf和id值不能相同   
 https://maven.apache.org/settings.html#Mirrors

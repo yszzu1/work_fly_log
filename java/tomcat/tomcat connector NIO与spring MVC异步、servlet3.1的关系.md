@@ -12,7 +12,7 @@ spring mvc的异步  http://www.bijishequ.com/detail/538890?p= ,是servlet3.0�
 原因是大部分的keep-alive连接有很多是不活动的，并不需要占用tomcat的work线程。NIO即能保持socket的keep-alive, 也能释放work线程。  
 使用少量(几百个)的work线程即可接收几万个连接的请求
 
-2. 异步是servlet业务处理的, 新开业务线程(和tomcat的work线程也分开, 他们两个的联系是request response对象). 没有NIO时也能异步处理. servlet3.1的异步在socket的操作上使用的是JDK事件机制，不是用的jdk NIO
+2. 异步是servlet业务处理的, 新开业务线程(和tomcat的work线程也分开, 他们两个的联系是AsyncContext对象). 没有NIO时也能异步处理. servlet3.1的异步在socket的操作上使用的是JDK事件机制，不是用的jdk NIO
 
 **对象和线程是两个概念**
 

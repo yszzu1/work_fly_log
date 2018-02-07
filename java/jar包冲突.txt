@@ -1,3 +1,0 @@
-解决jar包冲突，在任意位置打印类所在的jar包
-
-getClass().getClassLoader().getResource(XXX.class.getName().replace('.', '/') + ".class"));

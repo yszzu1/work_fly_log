@@ -6,7 +6,7 @@ getClass().getClassLoader().getResource(XXX.class.getName().replace('.', '/') + 
 
 
 
-现象:
+类加载问题现象:
 Caused by: java.lang.NoClassDefFoundError: Could not initialize class org.hibernate.validator.internal.engine.ConfigurationImpl
 	at org.hibernate.validator.HibernateValidator.createGenericConfiguration(HibernateValidator.java:33)
   

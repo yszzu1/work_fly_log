@@ -11,6 +11,7 @@ cluster-node-timeout 15000
 集群数据不是使用一致性hash, 而是使用slot管理的***  
 每个master只管理部分slot, 如果一个master挂了(下面没有备节点)，这个集群也就废了（此部分的slot数据永远不能访问）， 因此需要给master加至少一个slaver
 
+16个database与slot是什么关系?
 
 数据的key不能为null， value也不能为null?   
 

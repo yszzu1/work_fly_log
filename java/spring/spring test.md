@@ -20,3 +20,22 @@ public class RedisDaoTest {
 
 
 
+### spring boot test
+
+```
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = WebEnvironment.NONE)
+public class XXXServiceImplTest2 {
+
+    @Autowired
+    private XXXserv xxxServ;
+
+    @Test
+    public void test_XXX() {
+      xxxServ.xxx();
+    }
+}
+```
+使用@SpringBootTest的一些限制：
+package结构最好符合规范, SpringBootApplication查找算法默认是根据包名,https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html#boot-features-testing-spring-boot-applications-detecting-config, 可以自动注入properties, @Configuration类中的bean
+如果没有包名，需要手动确定

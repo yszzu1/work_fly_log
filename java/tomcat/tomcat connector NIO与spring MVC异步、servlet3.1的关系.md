@@ -5,6 +5,11 @@ tomcat connector的NIO   http://www.importnew.com/27309.html
 servlet3.0的异步  
 spring mvc的异步  http://www.bijishequ.com/detail/538890?p= ,是servlet3.0异步的另一种实现, 对比@WebServlet(async=true)
 
+异步对于服务器端的吞吐量提高主要是在大量低延迟处理+少量高兴的混合场景， [在高延迟的接口中使用异步不占用servlet线程,可以提高低延迟接口的吞吐量](http://zjumty.iteye.com/blog/2202016)
+
+
+
+
 
 **NIO与异步是两个概念**  没有异步io的说法，只有非阻塞io的说法!!!
 

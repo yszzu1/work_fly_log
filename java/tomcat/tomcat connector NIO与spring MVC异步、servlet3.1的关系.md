@@ -20,6 +20,8 @@ spring mvc的异步  http://www.bijishequ.com/detail/538890?p= ,是servlet3.0�
 2. 异步是servlet业务处理的, 新开业务线程(和tomcat的work线程也分开, 他们两个的联系是AsyncContext对象). 没有NIO时也能异步处理. servlet3.1的异步在socket的操作上使用的是JDK事件机制，不是用的jdk NIO  
 长时间运行的任务执行完毕之前就已经从servlet返回了。这并不意味着客户端收到了一个响应。与客户端的通信仍然是开放的等待结果，但接收到的请求的线程已被释放，并可以服务于另一个客户的请求
 
+[异步结果的渲染过程](https://segmentfault.com/a/1190000012525994)
+
 **对象和线程是两个概念**
 
 线程可以处理很多个对象  

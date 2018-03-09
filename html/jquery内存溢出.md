@@ -15,4 +15,4 @@ $("body").on("click", ".xxxxclass", function () {
 ```
 
 **注意**  
-这个aprama不能是jquery对象, 否则会引起ajax内存溢出（变更循环引用）. 上面的.html()不能少
+这个aprama不能是jquery对象, 否则会引起ajax内存溢出（变更循环引用）, 调试控制台直接挂死. 上面的.html()不能少

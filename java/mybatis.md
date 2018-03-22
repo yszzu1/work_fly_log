@@ -14,4 +14,6 @@ public interface EmployeeMapper {
 ```  
 
 
+SQL日志
+只需要Mapper和java.sql两个包为debug
 

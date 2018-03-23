@@ -40,3 +40,7 @@ http://favtomcat host配置在nginx所在机器
 1.在upstream server前面注释掉, 然后执行nginx -s reload  
 2.server权重设置成0, 然后reload?
 
+#### 后续实现:  
+静态资源分离
+
+

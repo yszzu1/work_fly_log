@@ -33,8 +33,10 @@ upstream模块必须在http{}模块里面
 在proxy_pass中可以加入自定义请求头, $remote_addr是nginx内置变量  
 proxy_pass后面必须是http://+upsteam名字  
 
-http://favtomcat host配置在nginx所在机器  
+http://favtomcat host配置在nginx所在机器 
+
 **服务下线: **
-1.在upstream server前面注释掉, 然后执行nginx -s reload
-2.server权重设置成0, 然后reload
+
+1.在upstream server前面注释掉, 然后执行nginx -s reload  
+2.server权重设置成0, 然后reload?
 

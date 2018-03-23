@@ -10,4 +10,5 @@ gzip -d xxx.gz
 tar xvf xxx.tar.gz
 
 unzip xxx.zip
+jar.war可以直接用unzip解压
 

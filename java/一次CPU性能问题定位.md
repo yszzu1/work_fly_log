@@ -1,0 +1,35 @@
+
+
+
+请求并发不高，但是响应很慢， 调用别人的接口返回数据很快，但是自己的线程感觉响应时间慢
+
+==》 CPU压力太大， 线程数太多，死循环？
+
+
+使用TOP查看 cpu load， 一会高一会低，双核cpu load有时达到8, *实际上达到cpu核心数就需要定位问题了*
+
+**查看java进程有多少线程**  
+1. top -Hp pid   在上面中有Thread的统计
+2. ps -mp pid | wc -l 
+3. cat /proc/xxx/
+
+输出结果竟然有15000多个线程，对于双核cpu压力实在太大了，会引起系统不稳定
+
+
+**jstack导出线程栈**  
+内存操作，这个操作应该响应很快  
+jstack pid >> xxx.log  
+jstack pid | grep tid的十六进制数
+
+*如果有死锁，会在最下面几行输出*
+
+输出结果中并没有看到死锁，但是有很多（grep wc统计也正好15000多）
+
+```
+"Thread-507" #4327 daemon prio=5 os_prio=0 tid=0x00002b30cc10d000 nid=0x72fb in Object.wait() [0x00002b30f1759000]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	at com.mashape.unirest.http.utils.SyncIdleConnectionMonitorThread.run(SyncIdleConnectionMonitorThread.java:22)
+	- locked <0x000000008b19e320> (a com.mashape.unirest.http.utils.SyncIdleConnectionMonitorThread)
+ ```
+ 怀疑unirest没有释放http连接，官方文档看不出问题，怎么办？？？？

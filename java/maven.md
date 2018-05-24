@@ -53,3 +53,7 @@ mirrorOf和id值不能相同
 https://maven.apache.org/settings.html#Mirrors
 
 
+### 哪些属性可以被子model继承
+https://maven.apache.org/pom.html#Inheritance
+
+

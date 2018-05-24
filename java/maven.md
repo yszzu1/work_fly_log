@@ -56,4 +56,4 @@ https://maven.apache.org/settings.html#Mirrors
 ### 哪些属性可以被子model继承
 https://maven.apache.org/pom.html#Inheritance
 
-
+maven搜索顺序relativePath==>local repo ==> remote repo

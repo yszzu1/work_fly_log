@@ -59,7 +59,7 @@ jstack pid | grep tid的十六进制数
  
  
  引入的问题: **线程为什么一直存在,为什么不释放?**  
- 换个问法: **线程为什么进入不了DEAD状态?** 
+ 换个问法: **线程为什么进入不了DEAD状态?**   
  原因1: run方法中有类似while的死循环。 比如上面的情景, 多线程时HashMap的Entry<>引起的死循环, NIO的epoll bug。 线程一直处于running状态  
  原因2: run方法中有对象发生死锁。 造成线程一直处于wait状态  
  原因3: 线程池中core线程不会释放。 Worker对象持有一个final Thread， 线程池中管理Worker（如果没有Work对象一直引用这个Thread，线程也会被回收的）。  

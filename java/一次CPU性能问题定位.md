@@ -12,7 +12,8 @@
 **查看java进程有多少线程**  
 1. top -Hp pid   在上面中有Thread的统计
 2. ps -mp pid | wc -l 
-3. cat /proc/xxx/
+3. cat /proc/xxx/  
+window系统中的工具使用Process Explorer或者jdk飞行器
 
 输出结果竟然有15000多个线程，对于双核cpu压力实在太大了，会引起系统不稳定
 
